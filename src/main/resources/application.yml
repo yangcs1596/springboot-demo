@@ -1,0 +1,45 @@
+server:
+  port: 8082
+  #  servlet:
+  #    context-path: /demo
+  tomcat:
+    protocol-header: X-Forwarded-Proto
+    remote-ip-header: X-Forwarded-For
+    protocol-header-https-value: https
+spring:
+#  application:
+#    name: nacos-test
+#  cloud:
+#    nacos:
+#      config:
+#        server-addr: 192.168.88.122:8848
+  servlet:
+    multipart:
+      location: home/file_server
+  rabbitmq:
+    host: 127.0.0.1
+    username: root
+    password: root
+    port: 5672
+    retry-time: 3,6,9
+    listener:
+      simple:
+        acknowledge-mode: manual
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+jodconverter:
+  #  enabled: true  #注意这个开关，
+  #  officeHome: D:\OpenOffice\OpenOffice4
+  #  portNumbers: 8101,8102,8103,8104,8105
+  #  maxTasksPerProcess: 5
+  local:
+    enabled: true
+    office-home: D:\OpenOffice\OpenOffice4
+    port-numbers: 8100
+    max-tasks-per-process: 5
+file:
+  upload:
+    path: E:\home

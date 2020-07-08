@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>user1</title>
+    <script type="text/javascript" src="/static/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/util/js/sockjs.min.js"></script>
+    <script type="text/javascript" src="/static/util/js/stomp.min.js"></script>
+</head>
+<body>
+<h1>hello broker relay!</h1>
+<input id="name">
+<button id="send_mes" onclick="sendName()">user 1 Send Message</button>
+
+<script>
+    var socket = new SockJS('/mywebsockets');
+    stompClient = Stomp.over(socket);
+    stompClient.debug = null;
+    stompClient.connect({}, function (frame) {
+        console.log("success")
+        stompClient.subscribe('/exchange/topicExchange/news123456', function (response) {
+            console.log(JSON.parse(response.body));
+        });
+    });
+
+    function sendName() {
+        console.log("开始发送")
+        var data = {"id": "123456", "test": $("#name").val()};
+        stompClient.send("/app/news2", {}, JSON.stringify(data));
+    }
+</script>
+</body>
+</html>

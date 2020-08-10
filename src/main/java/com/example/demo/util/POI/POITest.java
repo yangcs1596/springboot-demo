@@ -1,5 +1,7 @@
 package com.example.demo.util.POI;
 
+import com.documents4j.api.IConverter;
+import com.documents4j.job.RemoteConverter;
 import org.apache.poi.xwpf.converter.core.BasicURIResolver;
 import org.apache.poi.xwpf.converter.core.FileImageExtractor;
 import org.apache.poi.xwpf.converter.pdf.PdfConverter;
@@ -10,6 +12,7 @@ import org.apache.poi.xwpf.usermodel.XWPFDocument;
 import org.springframework.util.ResourceUtils;
 
 import java.io.*;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 功能描述：利用POI实现word转成pdf文件
@@ -26,6 +29,11 @@ public class POITest {
 //        try  {
 //            InputStream docxInputStream = new FileInputStream(inputWord);
 //            OutputStream outputStream = new FileOutputStream(outputFile);
+    IConverter converter = RemoteConverter.builder()
+            .baseFolder(null)
+            .workerPool(20, 25, 2,TimeUnit.SECONDS)
+            .requestTimeout(10, TimeUnit.SECONDS)
+            .baseUri("http://localhost:9998").build();
 //            //本地调用
 ////            IConverter converter = LocalConverter.builder()//
 ////                    .baseFolder(new File("C:\Users\documents4j\temp"));
@@ -50,8 +58,8 @@ public class POITest {
      * 功能： 将docx转为pdf
      */
     public static void docx2Pdf() throws Exception{
-        String docPath = "C:\\Users\\Administrator\\Desktop\\2020-07-08 11_00_13-商标转让声明公证（个人）.docx";
-        String pdfPath = "C:\\Users\\Administrator\\Desktop\\2020-07-08 11_00_13-商标转让声明公证（个人）.pdf";
+        String docPath = "C:\\Users\\Administrator\\Desktop\\哈哈.docx";
+        String pdfPath = "C:\\Users\\Administrator\\Desktop\\哈哈.pdf";
 
         XWPFDocument document;
         InputStream doc = new FileInputStream(docPath);
@@ -59,7 +67,6 @@ public class POITest {
         PdfOptions options = PdfOptions.create();
         OutputStream out = new FileOutputStream(pdfPath);
         PdfConverter.getInstance().convert(document, out, options);
-
         doc.close();
         out.close();
     }

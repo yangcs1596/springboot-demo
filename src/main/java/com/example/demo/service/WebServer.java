@@ -1,4 +1,4 @@
-package com.example.demo.service.imp;
+package com.example.demo.service;
 
 import com.example.demo.entity.UserDTO;
 

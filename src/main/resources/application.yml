@@ -6,6 +6,10 @@ server:
     protocol-header: X-Forwarded-Proto
     remote-ip-header: X-Forwarded-For
     protocol-header-https-value: https
+    boot
+    spring.boot.admin.client.url=http://127.0.0.1:8001
+    management.endpoints.web.exposure.include=*
+    management.endpoint.health.show-details=ALWAYS
 spring:
 #  application:
 #    name: nacos-test
@@ -24,6 +28,10 @@ spring:
     retry-time: 3,6,9
     listener:
       simple:
+        acknowledge-mode: manual #其有三种配置方式，分别是none、manual和auto；默认auto, manual是手动
+        retry:
+          enabled: true #开启了重试机制，重试次数结束，会放弃此消息；
+      direct:
         acknowledge-mode: manual
   http:
     encoding:

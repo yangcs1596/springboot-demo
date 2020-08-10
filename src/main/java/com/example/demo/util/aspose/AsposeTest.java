@@ -3,11 +3,10 @@ package com.example.demo.util.aspose;
 import com.aspose.words.Document;
 import com.aspose.words.License;
 import com.aspose.words.SaveFormat;
-import com.documents4j.api.DocumentType;
-import com.documents4j.api.IConverter;
-import com.documents4j.job.LocalConverter;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
 
 /**
  * @Author: 杨春生
@@ -49,19 +48,21 @@ public class AsposeTest {
     }
 
     public static void main(String[] args) {
-//        doc2pdf("C:\\Users\\Administrator\\Desktop\\二维码\\123.doc", "C:\\Users\\Administrator\\Desktop\\二维码\\123.pdf");
+        doc2pdf("C:\\\\Users\\\\Administrator\\\\Desktop\\\\2020-07-10 11_20_27-商标转让声明公证（企业）.docx",
+                "C:\\\\Users\\\\Administrator\\\\Desktop\\\\2020-07-10 11_20_27-商标转让声明公证（企业）.pdf");
 
-            File inputWord = new File("C:\\Users\\Administrator\\Desktop\\2020-07-08 11_00_13-商标转让声明公证（个人）.docx");
-            File outputFile = new File("C:\\Users\\Administrator\\Desktop\\哈哈哈.pdf");
-            try  {
-                InputStream docxInputStream = new FileInputStream(inputWord);
-                OutputStream outputStream = new FileOutputStream(outputFile);
-                IConverter converter = LocalConverter.builder().build();
-                converter.convert(docxInputStream).as(DocumentType.DOCX).to(outputStream).as(DocumentType.PDF).execute();
-                outputStream.close();
-                System.out.println("success");
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        //这种转换只使用与windows或装了word工具
+//            File inputWord = new File("C:\\Users\\Administrator\\Desktop\\2020-07-08 11_00_13-商标转让声明公证（个人）.docx");
+//            File outputFile = new File("C:\\Users\\Administrator\\Desktop\\哈哈哈.pdf");
+//            try  {
+//                InputStream docxInputStream = new FileInputStream(inputWord);
+//                OutputStream outputStream = new FileOutputStream(outputFile);
+//                IConverter converter = LocalConverter.builder().build();
+//                converter.convert(docxInputStream).as(DocumentType.DOCX).to(outputStream).as(DocumentType.PDF).execute();
+//                outputStream.close();
+//                System.out.println("success");
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
     }
 }

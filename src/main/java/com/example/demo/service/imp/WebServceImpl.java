@@ -1,7 +1,7 @@
-package com.example.demo.service;
+package com.example.demo.service.imp;
 
 import com.example.demo.entity.UserDTO;
-import com.example.demo.service.imp.WebServer;
+import com.example.demo.service.WebServer;
 
 import javax.jws.WebService;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  * @Description:
  */
 
-@WebService(endpointInterface = "org.senssic.jaxweb.impl.WebServer", portName = "senssicServer")
+@WebService(endpointInterface = "com.example.demo.service.WebServer", portName = "senssicServer")
 public class WebServceImpl implements WebServer {
 
     @Override

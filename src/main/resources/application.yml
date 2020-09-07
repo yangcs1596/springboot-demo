@@ -6,11 +6,26 @@ server:
     protocol-header: X-Forwarded-Proto
     remote-ip-header: X-Forwarded-For
     protocol-header-https-value: https
-    boot
-    spring.boot.admin.client.url=http://127.0.0.1:8001
-    management.endpoints.web.exposure.include=*
-    management.endpoint.health.show-details=ALWAYS
 spring:
+  devtools:
+    restart:
+      enabled: true  #设置开启热部署
+      additional-paths: src/main/java #重启目录
+      exclude: WEB-INF/**
+  freemarker:
+    suffix: .ftl
+    cache: false
+    # 字符集
+    charset: UTF-8
+    # 检查模板位置
+    check-template-location: true
+    # 模板内容类型
+    content-type: text/html
+    expose-request-attributes: true
+    expose-session-attributes: true
+    request-context-attribute: request
+    # 模板位置
+    template-loader-path: classpath:/templates
 #  application:
 #    name: nacos-test
 #  cloud:

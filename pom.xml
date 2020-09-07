@@ -458,6 +458,22 @@
             <artifactId>guava</artifactId>
             <version>21.0</version>
         </dependency>
+        <!--html转image-->
+        <dependency>
+            <groupId>gui.ava</groupId>
+            <artifactId>html2image</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.xhtmlrenderer</groupId>
+            <artifactId>core-renderer</artifactId>
+            <version>R8</version>
+        </dependency>
+        <!--html转image结束-->
         <!--aspose开始-->
         <dependency>
             <groupId>Aspose</groupId>
@@ -477,6 +493,7 @@
         <!--aspose结束-->
     </dependencies>
     <repositories>
+
         <!--<repository>-->
             <!--<id>nexus</id>-->
             <!--<name>nexus</name>-->
@@ -493,6 +510,10 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
             </plugin>
         </plugins>
     </build>

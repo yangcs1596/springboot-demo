@@ -278,6 +278,13 @@
             <artifactId>beetlsql</artifactId>
             <version>2.9.5</version>
         </dependency>
+        <!--二维码生成工具包-->
+        <dependency>
+            <groupId>com.google.zxing</groupId>
+            <artifactId>core</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!--二维码生成工具包结束-->
         <!--&lt;!&ndash;自动配置数据源&ndash;&gt;
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -474,22 +481,29 @@
             <version>R8</version>
         </dependency>
         <!--html转image结束-->
+        <!--图片压缩工具包结束-->
+        <dependency>
+            <groupId>net.coobird</groupId>
+            <artifactId>thumbnailator</artifactId>
+            <version>0.4.8</version>
+        </dependency>
+        <!--图片压缩工具包-->
         <!--aspose开始-->
-        <dependency>
-            <groupId>Aspose</groupId>
-            <artifactId>Aspose-word</artifactId>
-            <version>14.11.0</version>
-        </dependency>
-        <dependency>
-            <groupId>Aspose</groupId>
-            <artifactId>Aspose-cells</artifactId>
-            <version>8.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>Aspose</groupId>
-            <artifactId>Aspose-slides</artifactId>
-            <version>19.6</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>Aspose</groupId>-->
+            <!--<artifactId>Aspose-word</artifactId>-->
+            <!--<version>14.11.0</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>Aspose</groupId>-->
+            <!--<artifactId>Aspose-cells</artifactId>-->
+            <!--<version>8.1.1</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>Aspose</groupId>-->
+            <!--<artifactId>Aspose-slides</artifactId>-->
+            <!--<version>19.6</version>-->
+        <!--</dependency>-->
         <!--aspose结束-->
     </dependencies>
     <repositories>
